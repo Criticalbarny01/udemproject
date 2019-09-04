@@ -16,7 +16,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         if(!user) {
           return next.handle(req);
         }
-        const modifiedReq = req.clone({params: new HttpParams().set('auth', user.token)}); //TODO: figure out how to fix this typescript error and why it works like this.
+        const modifiedReq = req.clone({params: new HttpParams().set('auth', user.token)});
         return next.handle(modifiedReq);
       }));
   }
